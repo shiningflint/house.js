@@ -4,8 +4,8 @@
   "description": "The ruby house app re-written in JS",
   "main": "index.js",
   "scripts": {
-    "spec": "node test/speaker_spec.js",
-    "kentang": "mocha"
+    "spec": "node spec/speaker_spec.js",
+    "mocha": "mocha spec"
   },
   "author": "ACBW",
   "license": "GPL-3.0",
