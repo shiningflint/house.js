@@ -1,0 +1,17 @@
+{
+  "name": "housejs",
+  "version": "1.0.0",
+  "description": "The ruby house app re-written in JS",
+  "main": "index.js",
+  "scripts": {
+    "spec": "node test/speaker_spec.js",
+    "kentang": "mocha"
+  },
+  "author": "ACBW",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0"
+  }
+}
