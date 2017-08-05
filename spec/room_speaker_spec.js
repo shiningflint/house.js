@@ -27,7 +27,7 @@ describe("Speaker can move", () => {
       this.s.move_to(this.kitchen);
     });
 
-    it("From the living room to the kitchen", () => {
+    it("To the kitchen", () => {
       expect(this.lr.objects[this.s.label]).to.equal(undefined);
       expect(this.kitchen.objects[this.s.label]).to.equal(this.s);
     });
