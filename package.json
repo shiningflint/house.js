@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "The ruby house app re-written in JS",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shiningflint/house.js.git"
+  },
   "scripts": {
-    "spec": "node spec/speaker_spec.js",
-    "mocha": "mocha spec"
+    "test": "mocha spec"
   },
   "author": "ACBW",
   "license": "GPL-3.0",

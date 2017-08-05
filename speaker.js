@@ -12,6 +12,11 @@ class Speaker {
   vdown() {
     this.volume -= 1;
   }
+
+  move_to(destination_room) {
+    destination_room.objects[this.label] = this;
+    this.at_room = destination_room;
+  }
 }
 
 module.exports = Speaker;
