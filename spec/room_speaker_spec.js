@@ -41,3 +41,14 @@ describe("Speaker can move", () => {
     });
   });
 });
+
+describe("Speaker controls noise", () => {
+  it("up when volume up", () => {
+    var sp = new Speaker("Audio Technica");
+    var br = new Room("Bed Room");
+
+    sp.move_to(br);
+    sp.vup();
+    expect(br.noise).to.equal(1);
+  });
+});

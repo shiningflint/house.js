@@ -7,6 +7,9 @@ class Speaker {
 
   vup() {
     this.volume += 1;
+    if(this.at_room) {
+      this.at_room.update_noise();
+    }
   }
 
   vdown() {
