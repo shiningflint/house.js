@@ -15,7 +15,14 @@ class Speaker {
 
   move_to(destination_room) {
     destination_room.objects[this.label] = this;
+    this.leave_room(this.at_room);
     this.at_room = destination_room;
+  }
+
+  leave_room(source_room) {
+    if (source_room) {
+      delete source_room.objects[this.label];
+    }
   }
 }
 

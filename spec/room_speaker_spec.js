@@ -3,13 +3,21 @@ var Room = require('../room');
 var Speaker = require('../speaker');
 
 describe("Speaker can move", () => {
+  before(() => {
+    this.s = new Speaker("Boombox");
+    this.lr = new Room("Living Room");
+    this.s.move_to(this.lr);
+  });
+
   it("To the living room", () => {
-    var s = new Speaker("Boombox");
-    var lr = new Room("Living Room");
+    expect(this.s.at_room).to.equal(this.lr);
+    expect(this.lr.objects[this.s.label]).to.equal(this.s);
+  });
 
-    s.move_to(lr);
-
-    expect(s.at_room).to.equal(lr);
-    expect(lr.objects[s.label]).to.equal(s);
+  it("From the living room to the kitchen", () => {
+    this.kitchen = new Room("Kitchen");
+    this.s.move_to(this.kitchen);
+    expect(this.lr.objects[this.s.label]).to.equal(undefined);
+    expect(this.kitchen.objects[this.s.label]).to.equal(this.s);
   });
 });
