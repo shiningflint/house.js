@@ -14,6 +14,9 @@ class Speaker {
 
   vdown() {
     this.volume -= 1;
+    if(this.at_room) {
+      this.at_room.update_noise();
+    }
   }
 
   move_to(destination_room) {

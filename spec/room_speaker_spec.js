@@ -43,12 +43,21 @@ describe("Speaker can move", () => {
 });
 
 describe("Speaker controls noise", () => {
-  it("up when volume up", () => {
-    var sp = new Speaker("Audio Technica");
-    var br = new Room("Bed Room");
+  before(() => {
+    this.sp = new Speaker("Audio Technica");
+    this.br = new Room("Bed Room");
 
-    sp.move_to(br);
-    sp.vup();
-    expect(br.noise).to.equal(1);
+    this.sp.move_to(this.br);
+    this.sp.vup();
+  });
+
+  it("up when volume up", () => {
+    expect(this.br.noise).to.equal(1);
+  });
+
+  it("down when volume down", () => {
+    this.sp.vup();
+    this.sp.vdown()
+    expect(this.br.noise).to.equal(1);
   });
 });

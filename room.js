@@ -6,6 +6,7 @@ class Room {
   }
 
   update_noise() {
+    this.noise = 0;
     Object.keys(this.objects).forEach((key) => {
       var value = this.objects[key];
       if(typeof value.volume === "number") {
