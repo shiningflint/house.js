@@ -60,4 +60,12 @@ describe("Speaker controls noise", () => {
     this.sp.vdown()
     expect(this.br.noise).to.equal(1);
   });
+
+  it("updates room noise when moved", () => {
+    this.toilet = new Room("Toilet");
+    this.sp.vup();
+    this.sp.move_to(this.toilet);
+    expect(this.br.noise).to.equal(0);
+    expect(this.toilet.noise).to.equal(2);
+  });
 });
