@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var Speaker = require('../speaker');
 var Room = require('../room');
+var Admin = require('../admin');
 
 describe("Speaker", () => {
   var s, lr, sp;
@@ -23,5 +24,16 @@ describe("Speaker", () => {
     lr.add_object(sp);
     sp.vup();
     expect(lr.noise).to.equal(2);
+  });
+
+  it("updates room noise if moved", () => {
+    var admin = new Admin('admin');
+    var kitchen =  new Room('Kitchen');
+    admin.move_object_to_room(sp, kitchen);
+    expect(lr.noise).to.equal(1);
+    expect(kitchen.noise).to.equal(1);
+    admin.move_object_to_room(s, kitchen);
+    expect(lr.noise).to.equal(0);
+    expect(kitchen.noise).to.equal(2);
   });
 });

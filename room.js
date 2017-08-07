@@ -9,12 +9,14 @@ class Room {
     if (object.label) {
       this.objects[object.label] = object;
     }
+    this.update_noise();
   }
 
   remove_object(object) {
     if (object.label) {
       delete this.objects[object.label];
     }
+    this.update_noise();
   }
 
   update_noise() {
