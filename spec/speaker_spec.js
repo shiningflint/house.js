@@ -11,4 +11,15 @@ describe("Speaker is in check", () => {
     s.vdown();
     expect(s.volume).to.equal(1);
   });
+
+  it("max volume 10 & min volume 0", () => {
+    var s = new Speaker("Beats");
+    var sp = new Speaker("ATH");
+    s.volume = 10;
+    sp.volume = 0;
+    s.vup();
+    sp.vdown();
+    expect(s.volume).to.equal(10);
+    expect(sp.volume).to.equal(0);
+  });
 });

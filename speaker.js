@@ -6,14 +6,18 @@ class Speaker {
   }
 
   vup() {
-    this.volume += 1;
+    if(this.volume < 10) {
+      this.volume += 1;
+    }
     if(this.at_room) {
       this.at_room.update_noise();
     }
   }
 
   vdown() {
-    this.volume -= 1;
+    if(this.volume > 0) {
+      this.volume -= 1;
+    }
     if(this.at_room) {
       this.at_room.update_noise();
     }
