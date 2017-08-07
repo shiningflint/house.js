@@ -27,6 +27,16 @@ class Room {
         this.noise += value.volume;
       }
     });
+    this.broadcast_noise(this.noise, this.objects);
+  }
+
+  broadcast_noise(noise, objects) {
+    Object.keys(objects).forEach((key) => {
+      var value = objects[key];
+      if(typeof value.sense_noise === "function") {
+        value.sense_noise(noise);
+      }
+    });
   }
 }
 
