@@ -5,6 +5,18 @@ class Room {
     this.noise = noise;
   }
 
+  add_object(object) {
+    if (object.label) {
+      this.objects[object.label] = object;
+    }
+  }
+
+  remove_object(object) {
+    if (object.label) {
+      delete this.objects[object.label];
+    }
+  }
+
   update_noise() {
     this.noise = 0;
     Object.keys(this.objects).forEach((key) => {
